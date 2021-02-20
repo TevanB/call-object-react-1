@@ -1,3 +1,5 @@
+import { response } from "./server/app";
+
 const newRoomEndpoint =
   `${window.location.origin}/api/rooms`;
 
@@ -15,11 +17,23 @@ async function createRoom() {
 
   const exp = Math.round(Date.now() / 1000) + 60 * 30;
   const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer b2cdec99c50a6846b778a2eb88f9cf4fd9a71cab07587a43771345911a730b43'
+    },
+    body: 'false'
+  };
+  
+  fetch('https://api.daily.co/v1/rooms', options)
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+  /*const options = {
     properties: {
       exp: exp,
     },
   };
-  /*let response = await fetch(newRoomEndpoint, {
+  let response = await fetch(newRoomEndpoint, {
     method: "POST",
     body: JSON.stringify(options),
     mode: 'cors',
@@ -28,7 +42,8 @@ async function createRoom() {
   //return room;
 
   // Comment out the above and uncomment the below, using your own URL
-  return { url: "https://uofthacks2021.daily.co/uofthacks2021" };
+  //return { url: "https://uofthacks2021.daily.co/uofthacks2021" };
+  return response.url;
 }
 
 export default { createRoom };
