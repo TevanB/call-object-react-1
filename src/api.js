@@ -1,5 +1,3 @@
-import { response } from "./server/app";
-
 const newRoomEndpoint =
   `${window.location.origin}/api/rooms`;
 
