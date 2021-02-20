@@ -19,16 +19,16 @@ async function createRoom() {
       exp: exp,
     },
   };
-  let response = await fetch(newRoomEndpoint, {
+  /*let response = await fetch(newRoomEndpoint, {
     method: "POST",
     body: JSON.stringify(options),
     mode: 'cors',
-  }),
-    room = await response.json();
-  return room;
+  }),*/
+    //room = await response.json();
+  //return room;
 
   // Comment out the above and uncomment the below, using your own URL
-  // return { url: "https://your-domain.daily.co/hello" };
+  return { url: "https://uofthacks2021.daily.co/uofthacks2021" };
 }
 
 export default { createRoom };
